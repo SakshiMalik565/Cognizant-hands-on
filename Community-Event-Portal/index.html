@@ -217,15 +217,10 @@
             var selectedEvent = eventSelect.value;
             var eventFee = 0;
 
-            if (selectedEvent === "music") {
-                eventFee = 20;
-            } else if (selectedEvent === "art") {
-                eventFee = 15;
-            } else if (selectedEvent === "food") {
-                eventFee = 5;
-            } else if (selectedEvent === "tech") {
-                eventFee = 30;
-            }
+            if (selectedEvent === "music") { eventFee = 20; }
+            else if (selectedEvent === "art") { eventFee = 15; }
+            else if (selectedEvent === "food") { eventFee = 5; }
+            else if (selectedEvent === "tech") { eventFee = 30; }
 
             feeDisplay.innerText = "$" + eventFee;
 
