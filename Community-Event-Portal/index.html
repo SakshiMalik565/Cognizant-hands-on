@@ -3,45 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Community Event Portal</title>
-    <style>
-        /* Exercise 3: Welcome Banner Styling */
-        #welcomeBanner {
-            background-color: blue;
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-        .highlight {
-            color: red;
-            font-weight: bold;
-        }
-
-        /* Exercise 4: Image Border Styling */
-        .event-image-border {
-            border: 3px solid black;
-            width: 150px;
-            height: 100px;
-        }
-
-        table {
-            border-collapse: collapse;
-            margin: 15px auto;
-        }
-        td {
-            padding: 10px;
-            text-align: center;
-            border: 1px solid gray;
-        }
-        figure {
-            margin: 0;
-            padding: 5px;
-        }
-        section {
-            margin: 30px 10px;
-            padding: 10px;
-            border: 1px solid lightgray;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
@@ -160,6 +122,16 @@
             </p>
         </section>
 
+        <!-- Exercise 8 Demonstration: Box Model & Visibility vs Display -->
+        <section id="demo-section">
+            <h2>Box Model Demo: Visibility vs Display</h2>
+            <p>Below are demo boxes illustrating the difference between hiding an element while keeping its layout space (visibility: hidden) vs removing it completely (display: none).</p>
+            <div class="demo-box">Box 1: Visible</div>
+            <div class="demo-box demo-hidden">Box 2: Hidden (visibility: hidden)</div>
+            <div class="demo-box demo-none">Box 3: Removed (display: none)</div>
+            <div class="demo-box">Box 4: Visible</div>
+        </section>
+
         <!-- Exercise 7: Video Section -->
         <section id="video-section">
             <h2>Event Highlights Video</h2>
@@ -175,6 +147,16 @@
             <h2>Find Nearby Events</h2>
             <button type="button" onclick="findLocation()">Find Nearby Events</button>
             <p id="locationDisplay"></p>
+        </section>
+
+        <!-- Exercise 9: Multi-column Layout -->
+        <section id="news-section">
+            <h2>Community News</h2>
+            <div class="community-news">
+                <p>Welcome to our new monthly newsletter! We have exciting news about upcoming events in the neighborhood. This month, we are focusing on environmental sustainability and green initiatives. We hope to see everyone participate in our next community run and book sharing drive.</p>
+                <p>Thanks to our volunteers, the park restoration project is now complete. We have added new flower beds, paved walkways, and bird feeders. Be sure to check it out next time you attend our music concerts or local art gallery showcases.</p>
+                <p>Lastly, our beginner web coding meetup continues to grow! We are looking for advanced developers who are willing to volunteer their time to help mentor new learners. If you are interested, please fill out the registration form above.</p>
+            </div>
         </section>
 
     </main>

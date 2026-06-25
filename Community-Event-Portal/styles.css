@@ -1,0 +1,240 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400&display=swap');
+
+/* =======================================================
+   CSS3 Assignment - Community Event Portal
+   Written by a student learning CSS3
+   ======================================================= */
+
+/* -------------------------------------------------------
+   Exercise 1 & 2: CSS Basics, Syntax, and Comments
+   ------------------------------------------------------- */
+/* This stylesheet contains all CSS rules for the portal.
+   It uses clean indentation, appropriate selector scopes,
+   and basic properties for readability. */
+
+/* -------------------------------------------------------
+   Exercise 3: Selectors
+   ------------------------------------------------------- */
+
+/* 1. Universal Selector - Resets box-sizing for all elements */
+* {
+    box-sizing: border-box;
+}
+
+/* 2. Element Selector - Sets base styles for body and main layout */
+body {
+    font-family: 'Roboto', Arial, sans-serif; /* Exercise 5: Google Font & font-family */
+    font-size: 16px;                         /* Exercise 5: font-size */
+    line-height: 1.6;                        /* Exercise 5: line-height */
+    color: #333333;                          /* Exercise 4: HEX Color */
+    background-color: #fafafa;               /* Exercise 4: Background color */
+    background-image: url('images/background-pattern.png'); /* Exercise 4: Background image placeholder */
+    margin: 20px;
+}
+
+main {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* 3. ID Selector - Styles the welcome banner */
+#welcomeBanner {
+    background-color: #0000ff;               /* Exercise 4: HEX Blue background */
+    color: #ffffff;
+    padding: 20px;
+    text-align: center;                      /* Exercise 5: text-align */
+    margin-bottom: 25px;
+    border: 2px solid #00008b;
+}
+
+/* 4. Class Selector - Styles the special highlight offer and image borders */
+.highlight {
+    color: #ff0000;                          /* Exercise 4: HEX Red styling */
+    font-weight: bold;                       /* Exercise 5: font-weight */
+}
+
+.event-image-border {
+    border: 3px solid #333333;               /* Exercise 8: Border box-model */
+    width: 150px;
+    height: 100px;
+    margin: 10px;                            /* Exercise 8: Margin box-model */
+}
+
+/* 5. Group Selector - Applies typography rules to headings */
+h1, h2, h3 {
+    font-family: 'Roboto', Georgia, serif;
+    text-transform: uppercase;               /* Exercise 5: text-transform */
+    letter-spacing: 1px;                     /* Exercise 5: letter-spacing */
+}
+
+/* -------------------------------------------------------
+   Exercise 4: Colors & Backgrounds
+   ------------------------------------------------------- */
+
+/* Linear gradient background for section headings */
+section h2 {
+    background: linear-gradient(to right, #0000ff, #87ceeb);
+    color: #ffffff;
+    padding: 10px;
+    margin-top: 25px;
+}
+
+/* -------------------------------------------------------
+   Exercise 5: Typography
+   ------------------------------------------------------- */
+
+/* Styled figcaption to demonstrate italic styling */
+figcaption {
+    font-style: italic;                      /* Exercise 5: font-style */
+    font-size: 14px;
+    color: #555555;
+    margin-top: 5px;
+}
+
+/* -------------------------------------------------------
+   Exercise 6: Links & Lists
+   ------------------------------------------------------- */
+
+/* Style navigation links using pseudo-classes */
+nav a:link {
+    color: #0000ff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:visited {
+    color: #800080;                          /* Visited state: Purple color */
+}
+
+nav a:hover {
+    color: #ff0000;                          /* Hover state: Red color */
+    text-decoration: underline;
+}
+
+nav a:active {
+    color: #ffa500;                          /* Active state: Orange color */
+}
+
+/* Basic rule to remove bullet styling from lists where applicable */
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 10px 0;
+}
+
+/* -------------------------------------------------------
+   Exercise 7: Tables (Image Gallery)
+   ------------------------------------------------------- */
+table {
+    width: 100%;
+    border-collapse: collapse;               /* Collapse borders */
+    margin: 20px 0;
+}
+
+td {
+    border: 2px solid #cccccc;               /* Table cell border */
+    padding: 15px;                           /* Table cell padding */
+    text-align: center;                      /* Center align contents */
+}
+
+/* Zebra striping using tr:nth-child(even) & RGBA colors */
+tr:nth-child(even) {
+    background-color: rgba(0, 0, 255, 0.05); /* Light blue using RGBA */
+}
+
+/* -------------------------------------------------------
+   Exercise 8: Box Model (Margin, Padding, Border, Outline)
+   ------------------------------------------------------- */
+
+/* Registration form layout box-model */
+form {
+    border: 2px solid #000000;               /* Border box-model */
+    padding: 20px;                           /* Padding box-model */
+    margin: 25px 0;                          /* Margin box-model */
+    background-color: #ffffff;
+}
+
+/* Style input fields and select box model */
+form input, form select, form textarea {
+    width: 100%;
+    padding: 8px;
+    margin: 6px 0 16px 0;
+    border: 1px solid #cccccc;
+}
+
+/* Apply focus outline on user interaction */
+form input:focus, form select:focus, form textarea:focus {
+    outline: 3px solid #ff0000;              /* Outline box-model property */
+}
+
+/* Demonstration boxes for visibility vs display comparison */
+.demo-box {
+    border: 2px dashed #555555;
+    padding: 10px;
+    margin: 10px 0;
+    background-color: #e6e6e6;
+}
+
+/* visibility: hidden hides elements but preserves their layout space */
+.demo-hidden {
+    visibility: hidden;
+}
+
+/* display: none removes elements from layout completely */
+.demo-none {
+    display: none;
+}
+
+/* -------------------------------------------------------
+   Exercise 9: Multi-column Layout
+   ------------------------------------------------------- */
+
+/* Styles the multi-column community news text section */
+.community-news {
+    column-count: 3;                         /* Specifies 3 column layout */
+    column-gap: 20px;                        /* Spacing between columns */
+    column-rule: 2px solid #0000ff;          /* Divider rule between columns */
+    margin: 25px 0;
+    padding: 15px;
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+}
+
+/* -------------------------------------------------------
+   Exercise 10: Responsive Design (Media Queries)
+   ------------------------------------------------------- */
+
+/* Media query targeted for tablet and mobile devices (below 768px) */
+@media screen and (max-width: 768px) {
+    body {
+        font-size: 14px;                     /* Reduce body font size */
+        margin: 10px;
+    }
+
+    /* Stack navigation items vertically */
+    nav {
+        text-align: center;
+    }
+    nav a {
+        display: block;
+        margin: 10px 0;
+    }
+
+    /* Reduce image size for smaller screens */
+    .event-image-border {
+        width: 100px;
+        height: auto;
+    }
+
+    /* Adjust registration form spacing */
+    form {
+        width: 100%;
+        padding: 12px;
+    }
+
+    /* Adapt gallery grid to be vertical */
+    table, tr, td {
+        display: block;
+        width: 100%;
+    }
+}
