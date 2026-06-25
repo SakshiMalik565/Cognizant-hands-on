@@ -15,17 +15,15 @@
         <a href="https://www.w3schools.com/html/" target="_blank">HTML Help Guide</a>
     </nav>
 
-    <!-- Content -->
+    <!-- Main Content -->
     <main>
         
-        <!-- Exercise 3: Welcome Banner -->
         <div id="welcomeBanner">
             <h1>Welcome to the Community Event Portal</h1>
             <p>Find and join local community events in your area.</p>
             <p>Special Offer: <span class="highlight">Register now to get a free welcome badge!</span></p>
         </div>
 
-        <!-- Exercise 4: Image Gallery -->
         <section id="gallery-section">
             <h2>Event Gallery</h2>
             <table>
@@ -72,7 +70,6 @@
             </table>
         </section>
 
-        <!-- Exercise 5, 6, 8: Event Registration Form -->
         <section id="registration-section">
             <h2>Event Registration Form</h2>
             <form id="registrationForm" onsubmit="return handleFormSubmit(event)">
@@ -122,7 +119,6 @@
             </p>
         </section>
 
-        <!-- Exercise 8 Demonstration: Box Model & Visibility vs Display -->
         <section id="demo-section">
             <h2>Box Model Demo: Visibility vs Display</h2>
             <p>Below are demo boxes illustrating the difference between hiding an element while keeping its layout space (visibility: hidden) vs removing it completely (display: none).</p>
@@ -132,7 +128,6 @@
             <div class="demo-box">Box 4: Visible</div>
         </section>
 
-        <!-- Exercise 7: Video Section -->
         <section id="video-section">
             <h2>Event Highlights Video</h2>
             <video id="eventVideo" controls width="320" height="240" oncanplay="videoReady()">
@@ -142,14 +137,12 @@
             <p id="videoStatus"></p>
         </section>
 
-        <!-- Exercise 9: Location Section -->
         <section id="location-section">
             <h2>Find Nearby Events</h2>
             <button type="button" onclick="findLocation()">Find Nearby Events</button>
             <p id="locationDisplay"></p>
         </section>
 
-        <!-- Exercise 9: Multi-column Layout -->
         <section id="news-section">
             <h2>Community News</h2>
             <div class="community-news">
@@ -166,12 +159,9 @@
         <p>&copy; 2026 Community Event Portal. All rights reserved.</p>
     </footer>
 
-    <!-- JavaScript Exercises -->
     <script>
-        // Exercise 10: Simple console log for DevTools practice
         console.log("Page loaded");
 
-        // Exercise 8: Load saved values on refresh
         window.onload = function() {
             var savedEvent = localStorage.getItem("savedEventType");
             if (savedEvent) {
@@ -180,7 +170,6 @@
             }
         };
 
-        // Exercise 6: onblur for phone validation
         function validatePhone() {
             var phoneField = document.getElementById("userPhone");
             var phoneNumber = phoneField.value;
@@ -191,8 +180,6 @@
             }
         }
 
-        // Exercise 6: onchange for event fee display
-        // Exercise 8: save selected event type to localStorage and sessionStorage
         function showFee() {
             var eventSelect = document.getElementById("eventType");
             var feeDisplay = document.getElementById("feeDisplay");
@@ -212,7 +199,6 @@
             }
         }
 
-        // Exercise 8: clear preferences button
         function clearPreferences() {
             localStorage.removeItem("savedEventType");
             sessionStorage.removeItem("sessionEventType");
@@ -221,7 +207,6 @@
             alert("Preferences cleared!");
         }
 
-        // Exercise 6: onclick confirmation
         function confirmSubmission() {
             var userNameVal = document.getElementById("userName").value;
             if (userNameVal) {
@@ -230,7 +215,6 @@
             return true;
         }
 
-        // Exercise 5: output element for confirmation
         function handleFormSubmit(event) {
             event.preventDefault();
             var userNameVal = document.getElementById("userName").value;
@@ -242,14 +226,12 @@
             return false;
         }
 
-        // Exercise 6: character count in textarea
         function countCharacters() {
             var textarea = document.getElementById("userMessage");
             var charCountSpan = document.getElementById("charCount");
             charCountSpan.innerText = textarea.value.length;
         }
 
-        // Exercise 6: ondblclick image enlargement
         function enlargeImage(imageElement) {
             if (imageElement.style.width === "300px") {
                 imageElement.style.width = "150px";
@@ -260,18 +242,15 @@
             }
         }
 
-        // Exercise 7: oncanplay message
         function videoReady() {
             var statusMessage = document.getElementById("videoStatus");
             statusMessage.innerText = "Video ready to play";
         }
 
-        // Exercise 7: onbeforeunload warning
         window.onbeforeunload = function() {
             return "Are you sure you want to leave?";
         };
 
-        // Exercise 9: geolocation finder with high accuracy option
         function findLocation() {
             console.log("Location requested");
             var locationDisplay = document.getElementById("locationDisplay");
