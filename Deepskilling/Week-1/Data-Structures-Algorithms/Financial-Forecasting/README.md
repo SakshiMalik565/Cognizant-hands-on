@@ -15,18 +15,37 @@ Deepskilling/Week-1/Data-Structures-Algorithms/Financial-Forecasting/
                 └── Main.java
 ```
 
-## Algorithm & Complexity
+## Explanation of Recursion
+Recursion is a programming technique where a method calls itself to solve a smaller sub-problem of the original problem.
 
-### Recursive Future Value Algorithm
-* **Base Case**: If years is 0, return the current principal amount.
-* **Recursive Case**: If years > 0, return the result of the function called with the new principal increased by the interest rate, and years decremented by 1.
+### Base Case
+The condition that terminates the recursive calls. In this project, the base case is:
+```java
+if (years == 0) {
+    return principal;
+}
+```
+This stops the recursion when we have calculated the growth for all target years.
 
-### Complexity
-* **Time Complexity**: $\mathcal{O}(N)$ where $N$ is the number of years, as the method calls itself once for each year.
-* **Space Complexity**: $\mathcal{O}(N)$ due to the call stack depth built by recursive execution.
+### Recursive Case
+The part where the method calls itself with modified parameters that bring it closer to the base case:
+```java
+return calculateFutureValue(principal * (1 + rate), rate, years - 1);
+```
+It compounds the principal for one year and calls the method again with one less year remaining.
+
+## Complexities
+* **Time Complexity**: $\mathcal{O}(N)$ where $N$ is the number of years, since the function calls itself exactly $N$ times.
+* **Space Complexity**: $\mathcal{O}(N)$ because each nested function call builds another stack frame on the call stack.
+
+## How to Optimize Recursion
+To avoid excessive computation or stack overflow errors in deep recursion:
+1. **Memoization (Top-down caching)**: Store the results of expensive function calls in a lookup table (e.g., an array or Map) and return the cached result when the same inputs occur again. This is extremely useful for overlapping sub-problems (like calculating Fibonacci numbers).
+2. **Iterative Approach (Bottom-up)**: Rewrite the logic using standard loops (`for` or `while`). This runs in $\mathcal{O}(1)$ space complexity as it does not grow the call stack.
+3. **Tail Call Optimization (TCO)**: In languages that support it, tail recursion allows compilers to reuse the current stack frame, reducing space complexity to $\mathcal{O}(1)$. (Note: Java compiler does not support TCO natively).
 
 ## How to Run
-1. Open the terminal and navigate to the project directory:
+1. Navigate to the project directory:
    ```bash
    cd Deepskilling/Week-1/Data-Structures-Algorithms/Financial-Forecasting
    ```
