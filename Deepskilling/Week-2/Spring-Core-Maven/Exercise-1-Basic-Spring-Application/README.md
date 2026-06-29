@@ -1,7 +1,7 @@
-# Basic Spring Application (Exercise 1)
+# Basic Spring Application & Dependency Injection (Exercise 1 & 2)
 
 ## Objective
-Establish a basic Spring Core configuration with XML bean wiring, implementing setter injection to connect a Service layer bean to a Repository layer bean.
+Establish a basic Spring Core configuration using XML bean definition files and demonstrate both constructor injection and setter injection methods to wire repository dependencies into service classes.
 
 ## Technologies Used
 * **Java**: Version 17 (Source/Target Java 8 for compatibility)
@@ -28,6 +28,10 @@ Deepskilling/Week-2/Spring-Core-Maven/Exercise-1-Basic-Spring-Application/
             └── applicationContext.xml
 ```
 
+## Dependency Injection Modes
+* **Constructor Injection**: Injects dependencies through class constructors (`<constructor-arg ref="..."/>`).
+* **Setter Injection**: Injects dependencies through setter methods (`<property name="..." ref="..."/>`).
+
 ## How to Run
 1. Navigate to the project directory:
    ```bash
@@ -40,6 +44,11 @@ Deepskilling/Week-2/Spring-Core-Maven/Exercise-1-Basic-Spring-Application/
 
 ## Expected Output
 ```text
+--- Testing Constructor Injection ---
+BookService method executed: Delegating to repository.
+BookRepository method executed: Accessing book database.
+
+--- Testing Setter Injection ---
 BookService method executed: Delegating to repository.
 BookRepository method executed: Accessing book database.
 ```

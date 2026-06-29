@@ -7,8 +7,13 @@
     <!-- Define BookRepository bean -->
     <bean id="bookRepository" class="com.library.repository.BookRepository" />
 
-    <!-- Define BookService bean and inject BookRepository dependency -->
-    <bean id="bookService" class="com.library.service.BookService">
+    <!-- BookService using Constructor Injection -->
+    <bean id="bookServiceConstructor" class="com.library.service.BookService">
+        <constructor-arg ref="bookRepository" />
+    </bean>
+
+    <!-- BookService using Setter Injection -->
+    <bean id="bookServiceSetter" class="com.library.service.BookService">
         <property name="bookRepository" ref="bookRepository" />
     </bean>
 

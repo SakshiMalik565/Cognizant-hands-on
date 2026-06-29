@@ -9,10 +9,12 @@ public class LibraryManagementApplication {
         // Load Application Context
         ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 
-        // Retrieve Bean
-        BookService bookService = (BookService) context.getBean("bookService");
+        System.out.println("--- Testing Constructor Injection ---");
+        BookService serviceConstructor = (BookService) context.getBean("bookServiceConstructor");
+        serviceConstructor.executeServiceMethod();
 
-        // Verify Injection and Execution
-        bookService.executeServiceMethod();
+        System.out.println("\n--- Testing Setter Injection ---");
+        BookService serviceSetter = (BookService) context.getBean("bookServiceSetter");
+        serviceSetter.executeServiceMethod();
     }
 }
