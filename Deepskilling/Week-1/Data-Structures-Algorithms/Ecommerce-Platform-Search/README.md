@@ -16,28 +16,26 @@ Deepskilling/Week-1/Data-Structures-Algorithms/Ecommerce-Platform-Search/
                 └── Main.java
 ```
 
-## Algorithm & Complexity
+## Algorithm Complexities (Big O Notation)
 
-### Linear Search
-* **Description**: Iterates through the list of products one-by-one from beginning to end to locate the target.
-* **Time Complexity**: 
-  * Best Case: $\mathcal{O}(1)$ (element found at index 0)
-  * Average/Worst Case: $\mathcal{O}(N)$ (element at the end or not present)
-* **Space Complexity**: $\mathcal{O}(1)$ (no additional memory used)
+| Algorithm | Best Case | Average Case | Worst Case | Space Complexity |
+| :--- | :--- | :--- | :--- | :--- |
+| **Linear Search** | $\mathcal{O}(1)$ | $\mathcal{O}(N)$ | $\mathcal{O}(N)$ | $\mathcal{O}(1)$ |
+| **Binary Search** | $\mathcal{O}(1)$ | $\mathcal{O}(\log N)$ | $\mathcal{O}(\log N)$ | $\mathcal{O}(1)$ |
 
-### Binary Search
-* **Description**: Divides a sorted list of products in half repeatedly until the target is found.
-* **Time Complexity**: 
-  * Best Case: $\mathcal{O}(1)$ (element is at the middle)
-  * Average/Worst Case: $\mathcal{O}(\log N)$
-* **Space Complexity**: $\mathcal{O}(1)$ (iterative approach uses constant space)
+## Comparison of Linear vs Binary Search
+1. **Ordering Requirement**: Linear Search can operate on unsorted datasets. Binary Search strictly requires the dataset to be sorted beforehand.
+2. **Operations Count**: Linear Search scans elements sequentially. Binary Search repeatedly halves the remaining search area, drastically reducing checks.
 
-### Difference between Linear Search and Binary Search
-1. **Sort Requirement**: Linear Search works on unsorted arrays. Binary Search requires the array to be sorted alphabetically/numerically beforehand.
-2. **Speed on Large Data**: Binary Search is exponentially faster for large datasets due to its logarithmic complexity, whereas Linear Search scales linearly.
+## Which Search is Better and Why?
+**Binary Search** is significantly better for searching large datasets because of its logarithmic time complexity ($\mathcal{O}(\log N)$). For example, finding an item in a list of 1,000,000 products:
+* **Linear Search** requires up to **1,000,000 comparisons**.
+* **Binary Search** requires at most **20 comparisons**.
+
+However, if the array is unsorted and we only need to perform a single search, Linear Search may be preferred to avoid the overhead of sorting first ($\mathcal{O}(N \log N)$). For lookup-heavy systems, keeping a sorted array and using Binary Search is much more efficient.
 
 ## How to Run
-1. Navigate to the project folder:
+1. Navigate to the project directory:
    ```bash
    cd Deepskilling/Week-1/Data-Structures-Algorithms/Ecommerce-Platform-Search
    ```
@@ -45,7 +43,7 @@ Deepskilling/Week-1/Data-Structures-Algorithms/Ecommerce-Platform-Search/
    ```bash
    javac src/com/cognizant/ecommerce/*.java -d bin
    ```
-3. Run the Main file:
+3. Run the application:
    ```bash
    java -cp bin com.cognizant.ecommerce.Main
    ```
@@ -53,11 +51,11 @@ Deepskilling/Week-1/Data-Structures-Algorithms/Ecommerce-Platform-Search/
 ## Expected Output
 ```text
 Searching using Linear Search...
-Product Found: Product [ID=P102, Name=Mouse, Category=Accessories, Price=$25.5]
+Product Found: Product [ID=P102, Name=Mouse, Category=Accessories]
 
 Searching using Binary Search...
-Product Found: Product [ID=P102, Name=Mouse, Category=Accessories, Price=$25.5]
+Product Found: Product [ID=P102, Name=Mouse, Category=Accessories]
 
-Searching for non-existent product (Camera) using Binary Search...
+Searching for non-existent product (Camera)...
 Product Not Found
 ```

@@ -4,13 +4,11 @@ public class Product {
     private String productId;
     private String productName;
     private String category;
-    private double price;
 
-    public Product(String productId, String productName, String category, double price) {
+    public Product(String productId, String productName, String category) {
         this.productId = productId;
         this.productName = productName;
         this.category = category;
-        this.price = price;
     }
 
     public String getProductId() {
@@ -25,12 +23,8 @@ public class Product {
         return category;
     }
 
-    public double getPrice() {
-        return price;
-    }
-
     @Override
     public String toString() {
-        return "Product [ID=" + productId + ", Name=" + productName + ", Category=" + category + ", Price=$" + price + "]";
+        return "Product [ID=" + productId + ", Name=" + productName + ", Category=" + category + "]";
     }
 }
