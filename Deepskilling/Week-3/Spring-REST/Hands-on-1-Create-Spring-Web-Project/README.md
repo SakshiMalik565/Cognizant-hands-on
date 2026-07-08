@@ -1,7 +1,7 @@
-# Create Spring Web Project (Hands-on 1)
+# Spring REST Web Service (Hello World)
 
 ## Objective
-Establish a basic Spring Web Maven-based project using Spring Boot containing Web and DevTools capabilities.
+Establish a basic Spring Web Maven project and expose a simple "Hello World" RESTful Web Service endpoint.
 
 ## Technologies Used
 * **Java**: Version 17 (Source/Target Java 8 for compatibility)
@@ -24,10 +24,17 @@ Deepskilling/Week-3/Spring-REST/Hands-on-1-Create-Spring-Web-Project/
         │   └── com/
         │       └── cognizant/
         │           └── springlearn/
-        │               └── SpringLearnApplication.java
+        │               ├── SpringLearnApplication.java
+        │               └── controller/
+        │                   └── HelloController.java
         └── resources/
             └── application.properties
 ```
+
+## REST Endpoint Configuration
+* **Endpoint:** `/hello`
+* **HTTP Method:** `GET`
+* **Sample Response:** `Hello World!!`
 
 ## How to Run
 1. Navigate to the project directory:
@@ -38,15 +45,10 @@ Deepskilling/Week-3/Spring-REST/Hands-on-1-Create-Spring-Web-Project/
    ```bash
    mvn spring-boot:run
    ```
+3. Open a browser or use a tool like curl to access:
+   `http://localhost:8080/hello`
 
 ## Expected Output
 ```text
-[INFO] Scanning for projects...
-[INFO] -----------------------< com.cognizant:spring-learn >-----------------------
-[INFO] Building spring-learn 1.0-SNAPSHOT
-[INFO] --------------------------------[ jar ]---------------------------------
-...
-INFO 12345 --- [           main] c.c.s.SpringLearnApplication             : Starting SpringLearnApplication...
-INFO 12345 --- [           main] c.c.s.SpringLearnApplication             : Started SpringLearnApplication in 2.253 seconds (JVM running for 2.8)
-INFO 12345 --- [           main] c.c.s.SpringLearnApplication             : SpringLearnApplication started successfully!
+Hello World!!
 ```
