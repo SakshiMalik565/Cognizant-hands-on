@@ -1,7 +1,7 @@
-# Spring REST Web Services (Hello World & Country Services)
+# Spring REST Web Services (Hello World, Country & Authentication Services)
 
 ## Objective
-Establish a basic Spring Web Maven project and expose simple RESTful endpoints for retrieving greeting text and country resource details in JSON format (including by code).
+Establish a basic Spring Web Maven project and expose simple RESTful endpoints for greeting, country resource retrieval, and JWT authentication token generation.
 
 ## Technologies Used
 * **Java**: Version 17 (Source/Target Java 8 for compatibility)
@@ -11,6 +11,8 @@ Establish a basic Spring Web Maven project and expose simple RESTful endpoints f
 ## Dependencies
 * `spring-boot-starter-web`
 * `spring-boot-devtools`
+* `jjwt` (JWT Generation Library)
+* `jaxb-api` (JAXB base64 support for Java 9+)
 
 ## Folder Structure
 ```
@@ -27,9 +29,14 @@ Deepskilling/Week-3/Spring-REST/Hands-on-1-Create-Spring-Web-Project/
         │               ├── SpringLearnApplication.java
         │               ├── controller/
         │               │   ├── HelloController.java
-        │               │   └── CountryController.java
-        │               └── model/
-        │                   └── Country.java
+        │               │   ├── CountryController.java
+        │               │   └── AuthenticationController.java
+        │               ├── model/
+        │               │   ├── Country.java
+        │               │   ├── AuthRequest.java
+        │               │   └── AuthResponse.java
+        │               └── util/
+        │                   └── JwtUtil.java
         └── resources/
             └── application.properties
 ```
@@ -64,8 +71,25 @@ Deepskilling/Week-3/Spring-REST/Hands-on-1-Create-Spring-Web-Project/
     "name": "United States"
   }
   ```
-* **Error Response (Invalid code e.g. `FR`):**
-  * HTTP Status: `404 Not Found`
+
+### 4. Authentication Endpoint
+* **Endpoint:** `/authenticate`
+* **HTTP Method:** `POST`
+* **Sample Request Payload:**
+  ```json
+  {
+    "username": "admin",
+    "password": "admin"
+  }
+  ```
+* **Sample Success Response:**
+  ```json
+  {
+    "token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTY5..."
+  }
+  ```
+* **Sample Failure Response (Invalid credentials):**
+  * HTTP Status: `401 Unauthorized`
 
 ## How to Run
 1. Navigate to the project directory:
@@ -76,4 +100,4 @@ Deepskilling/Week-3/Spring-REST/Hands-on-1-Create-Spring-Web-Project/
    ```bash
    mvn spring-boot:run
    ```
-3. Open a browser or use a tool like curl to access the resources.
+3. Test using a tool like Postman, curl, or any API client.
