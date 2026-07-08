@@ -11,7 +11,7 @@ CREATE TABLE Accounts (
     CustomerID NUMBER,
     AccountType VARCHAR2(20),
     Balance NUMBER,
-    LastOpened DATE,
+    LastModified DATE,
     FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID)
 );
 
@@ -29,7 +29,6 @@ CREATE TABLE Loans (
     CustomerID NUMBER,
     LoanAmount NUMBER,
     InterestRate NUMBER,
-    DurationYears NUMBER,
     StartDate DATE,
     EndDate DATE,
     FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID)
