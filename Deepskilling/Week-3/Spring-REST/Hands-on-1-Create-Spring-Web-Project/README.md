@@ -1,7 +1,7 @@
 # Spring REST Web Services (Hello World & Country Services)
 
 ## Objective
-Establish a basic Spring Web Maven project and expose simple RESTful endpoints for retrieving greeting text and country resource details in JSON format.
+Establish a basic Spring Web Maven project and expose simple RESTful endpoints for retrieving greeting text and country resource details in JSON format (including by code).
 
 ## Technologies Used
 * **Java**: Version 17 (Source/Target Java 8 for compatibility)
@@ -41,7 +41,7 @@ Deepskilling/Week-3/Spring-REST/Hands-on-1-Create-Spring-Web-Project/
 * **HTTP Method:** `GET`
 * **Sample Response:** `Hello World!!`
 
-### 2. Country Endpoint
+### 2. Country Endpoint (Default)
 * **Endpoint:** `/country`
 * **HTTP Method:** `GET`
 * **Sample JSON Response:**
@@ -52,6 +52,21 @@ Deepskilling/Week-3/Spring-REST/Hands-on-1-Create-Spring-Web-Project/
   }
   ```
 
+### 3. Get Country By Code Endpoint
+* **Endpoint:** `/country/{code}`
+* **HTTP Method:** `GET`
+* **Path Variable:** `code` (e.g., `IN`, `US`, `JP`, `DE`)
+* **Sample Request:** `GET http://localhost:8080/country/US`
+* **Sample JSON Response:**
+  ```json
+  {
+    "code": "US",
+    "name": "United States"
+  }
+  ```
+* **Error Response (Invalid code e.g. `FR`):**
+  * HTTP Status: `404 Not Found`
+
 ## How to Run
 1. Navigate to the project directory:
    ```bash
@@ -61,6 +76,4 @@ Deepskilling/Week-3/Spring-REST/Hands-on-1-Create-Spring-Web-Project/
    ```bash
    mvn spring-boot:run
    ```
-3. Open a browser or use a tool like curl to access:
-   * Greeting: `http://localhost:8080/hello`
-   * Country: `http://localhost:8080/country`
+3. Open a browser or use a tool like curl to access the resources.
