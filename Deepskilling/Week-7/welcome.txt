@@ -1,0 +1,2 @@
+Welcome to the Git Hands-On Lab!
+This file is created as part of Git-HOL 1 to demonstrate basic staging and committing operations.
