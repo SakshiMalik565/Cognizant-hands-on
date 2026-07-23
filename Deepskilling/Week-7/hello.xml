@@ -1,4 +1,7 @@
 <course-portal>
+  <!-- Combined messages resolved during merge conflict -->
   <message>Hello from main branch!</message>
+  <message>Hello from GitWork branch!</message>
   <system>Production</system>
+  <developer>Alex Mercer</developer>
 </course-portal>
