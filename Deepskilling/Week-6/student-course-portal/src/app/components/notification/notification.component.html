@@ -1,0 +1,24 @@
+<div class="notification-box">
+  <h4>Notification Widget (Scoped Service)</h4>
+  <p class="desc-text">This widget uses a separate service instance scoped to this component instance.</p>
+  
+  <div class="input-group">
+    <input 
+      type="text" 
+      [(ngModel)]="newNotification" 
+      placeholder="Type a notification..."
+      class="form-control"
+      (keyup.enter)="addMessage()"
+    >
+    <button (click)="addMessage()" class="btn btn-add">Add</button>
+  </div>
+
+  <ul class="notification-list">
+    <li *ngFor="let note of notificationService.getNotifications()" class="notification-item">
+      {{ note }}
+    </li>
+    <li *ngIf="notificationService.getNotifications().length === 0" class="empty-list">
+      No scoped notifications.
+    </li>
+  </ul>
+</div>

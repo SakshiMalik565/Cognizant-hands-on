@@ -1,0 +1,54 @@
+<div class="course-list-page">
+  <div class="list-header">
+    <div class="title-area">
+      <h2>Browse Available Courses</h2>
+      <p class="subtitle">Enroll in courses to build your semester schedule.</p>
+    </div>
+    
+    <div class="filter-area">
+      <input 
+        type="text" 
+        [(ngModel)]="searchTerm" 
+        (ngModelChange)="onSearchChange()"
+        placeholder="Search courses by name or code..."
+        class="search-input"
+      >
+    </div>
+  </div>
+
+  <!-- Real/Simulated Loading Indicator -->
+  <div *ngIf="simulatedLoading || (loading$ | async)" class="loading-container">
+    <div class="spinner"></div>
+    <p>Loading course catalogue...</p>
+  </div>
+
+  <!-- Error display -->
+  <div *ngIf="error$ | async as error" class="error-container">
+    <p class="error-text">⚠️ {{ error }}</p>
+  </div>
+
+  <!-- Course grid list -->
+  <div *ngIf="!simulatedLoading && !(loading$ | async)" class="content-area">
+    <ng-container *ngIf="(filteredCourses$ | async) as courses; else noCourses">
+      <div *ngIf="courses.length > 0; else noCourses" class="courses-grid">
+        <app-course-card
+          *ngFor="let c of courses; trackBy: trackByCourseId"
+          [course]="c"
+          [enrolled]="(enrolledIds$ | async)?.includes(c.id) || false"
+          (enrollRequested)="onEnroll($event)"
+          (unenrollRequested)="onUnenroll($event)"
+          (cardClicked)="onCardClick($event)"
+        ></app-course-card>
+      </div>
+    </ng-container>
+  </div>
+
+  <!-- Empty state template -->
+  <ng-template #noCourses>
+    <div class="empty-state">
+      <span class="empty-icon">📂</span>
+      <h3>No Courses Found</h3>
+      <p>Try refining your search term or check back later.</p>
+    </div>
+  </ng-template>
+</div>

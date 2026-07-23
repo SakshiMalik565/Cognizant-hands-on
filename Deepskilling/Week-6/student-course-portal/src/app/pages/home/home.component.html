@@ -1,0 +1,98 @@
+<div class="home-container">
+  <section class="hero-section">
+    <h1>Welcome to the {{ portalName }}</h1>
+    <p class="hero-subtitle">
+      Manage your class schedule, enroll in courses, and monitor your academic progress seamlessly in one premium portal.
+    </p>
+
+    <!-- Stats widgets -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <span class="stat-icon">📚</span>
+        <div class="stat-content">
+          <h3>{{ coursesCount }}</h3>
+          <p>Courses Available</p>
+        </div>
+      </div>
+      <div class="stat-card">
+        <span class="stat-icon">✍️</span>
+        <div class="stat-content">
+          <h3>{{ enrolledCount }}</h3>
+          <p>Enrolled Courses</p>
+        </div>
+      </div>
+      <div class="stat-card">
+        <span class="stat-icon">📈</span>
+        <div class="stat-content">
+          <h3>{{ gpa }}</h3>
+          <p>GPA Score</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Bindings Demonstrations -->
+  <section class="bindings-section">
+    <h2>Data Binding Demonstrations (Hands-On 2)</h2>
+    <div class="demo-grid">
+      
+      <!-- Interpolation, Property & Event Binding Card -->
+      <div class="demo-card">
+        <h3>Property & Event Binding</h3>
+        <p>This button status is controlled by a property. Click it to trigger an event.</p>
+        <div class="btn-group">
+          <button 
+            [disabled]="!isPortalActive" 
+            (click)="onEnrollClick()"
+            class="btn-enroll"
+          >
+            Enroll Now
+          </button>
+          <button 
+            (click)="isPortalActive = !isPortalActive"
+            class="btn-toggle"
+          >
+            Toggle Button State
+          </button>
+        </div>
+        <p *ngIf="message" class="live-message">{{ message }}</p>
+      </div>
+
+      <!-- Two-Way Binding Card -->
+      <div class="demo-card">
+        <h3>Two-Way Data Binding</h3>
+        <p>Type below to see the Live searchTerm variable update inside the DOM (Interpolation):</p>
+        <input 
+          type="text" 
+          [(ngModel)]="searchTerm" 
+          placeholder="Search something live..."
+          class="input-search"
+        >
+        <p class="live-search-output" *ngIf="searchTerm">
+          Searching for: <strong>{{ searchTerm }}</strong>
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Hierarchical DI Demonstration -->
+  <section class="di-section">
+    <h2>Hierarchical Dependency Injection (Hands-On 6)</h2>
+    <p class="section-desc">
+      Below are two distinct instances of the same <code>NotificationComponent</code>. Because the <code>NotificationService</code> 
+      is registered under each component's <code>providers</code> list directly, Angular instantiates two separate service instances. 
+      Adding notifications to one will not modify the list in the other.
+    </p>
+    <div class="di-grid">
+      <div class="di-column">
+        <div class="di-badge bg-blue">Widget Area A</div>
+        <app-notification></app-notification>
+      </div>
+      <div class="di-column">
+        <div class="di-badge bg-purple">Widget Area B</div>
+        <app-notification></app-notification>
+      </div>
+    </div>
+  </section>
+</div>

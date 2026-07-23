@@ -1,0 +1,42 @@
+<div 
+  class="course-card" 
+  [ngClass]="cardClasses" 
+  [ngStyle]="borderStyle" 
+  [appHighlight]="'rgba(99, 102, 241, 0.08)'"
+  (click)="onCardClick()"
+>
+  <div class="card-header">
+    <span class="course-code">{{ course.code }}</span>
+    <div [ngSwitch]="course.gradeStatus" class="status-badge">
+      <span *ngSwitchCase="'passed'" class="badge badge--passed">Passed</span>
+      <span *ngSwitchCase="'failed'" class="badge badge--failed">Failed</span>
+      <span *ngSwitchCase="'pending'" class="badge badge--pending">Pending</span>
+    </div>
+  </div>
+
+  <h3 class="course-title">{{ course.name }}</h3>
+  <p class="course-credits">{{ course.credits | creditLabel }}</p>
+
+  <div class="card-details" *ngIf="isExpanded">
+    <p class="details-text">
+      This course provides extensive hands-on experience and deep-dives into topics relevant to {{ course.name }}.
+    </p>
+    <div class="details-meta">
+      <span>Duration: 12 Weeks</span>
+      <span>Instructor: Prof. Johnson</span>
+    </div>
+  </div>
+
+  <div class="card-actions">
+    <button class="btn btn--secondary" (click)="toggleExpand($event)">
+      {{ isExpanded ? 'Hide Details' : 'Show Details' }}
+    </button>
+    <button 
+      class="btn" 
+      [ngClass]="enrolled ? 'btn--danger' : 'btn--primary'" 
+      (click)="onEnrollClick($event)"
+    >
+      {{ enrolled ? 'Unenroll' : 'Enroll' }}
+    </button>
+  </div>
+</div>

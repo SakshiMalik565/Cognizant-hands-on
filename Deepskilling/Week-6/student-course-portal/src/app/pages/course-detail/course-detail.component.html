@@ -1,0 +1,60 @@
+<div class="course-detail-page">
+  <div class="back-nav">
+    <a routerLink="/courses" class="btn-back">← Back to Course Catalogue</a>
+  </div>
+
+  <div *ngIf="loading" class="loading-container">
+    <div class="spinner"></div>
+    <p>Loading course information...</p>
+  </div>
+
+  <div *ngIf="errorMsg" class="error-container">
+    <p class="error-text">⚠️ {{ errorMsg }}</p>
+  </div>
+
+  <div *ngIf="!loading && !errorMsg && course" class="detail-card">
+    <div class="detail-header">
+      <span class="course-code">{{ course.code }}</span>
+      <span class="badge" [ngClass]="'badge--' + course.gradeStatus">
+        {{ course.gradeStatus }}
+      </span>
+    </div>
+
+    <h2 class="course-name">{{ course.name }}</h2>
+    <p class="course-credits">Credits: <strong>{{ course.credits | creditLabel }}</strong></p>
+
+    <div class="detail-body">
+      <h3>Course Overview</h3>
+      <p class="overview-text">
+        This course is designed to cover fundamental and advanced concepts of {{ course.name }}.
+        Students will build projects, perform hands-on labs, and learn theoretical models to excel.
+      </p>
+
+      <div class="syllabus-block">
+        <h4>Expected Modules</h4>
+        <ul>
+          <li>Module 1: Foundations & Core Principles</li>
+          <li>Module 2: Advanced Design & Real-world Implementation</li>
+          <li>Module 3: Optimization, Testing, & Deployment</li>
+        </ul>
+      </div>
+
+      <!-- Enrolled Students (chained HTTP switchMap list) -->
+      <div class="students-block">
+        <h4>Enrolled Students (Chained switchMap Query)</h4>
+        <p class="helper-desc">Enrolled students fetched via switchMap operator for dependent HTTP requests.</p>
+        <ul *ngIf="(enrolledStudents$ | async) as students; else loadingStudents" class="students-list">
+          <li *ngFor="let student of students" class="student-item">
+            <span class="student-avatar">👤</span> {{ student }}
+          </li>
+          <li *ngIf="students.length === 0" class="empty-students">
+            No students are currently enrolled in this course.
+          </li>
+        </ul>
+        <ng-template #loadingStudents>
+          <p class="loading-text">Loading enrolled students...</p>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</div>

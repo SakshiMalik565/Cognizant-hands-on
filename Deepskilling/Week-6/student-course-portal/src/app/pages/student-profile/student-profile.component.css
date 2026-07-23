@@ -1,0 +1,179 @@
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  background: rgba(30, 41, 59, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 2.5rem;
+}
+
+.avatar-block {
+  width: 90px;
+  height: 90px;
+  background: linear-gradient(135deg, #6366f1, #a855f7);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+}
+
+.info-block h2 {
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 0.5rem 0;
+  letter-spacing: -0.5px;
+}
+
+.meta-item {
+  font-size: 0.9rem;
+  color: #94a3b8;
+  margin: 0.25rem 0;
+}
+
+.meta-item strong {
+  color: #cbd5e1;
+}
+
+/* Enrolled courses */
+.enrolled-courses-section h3 {
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: #fff;
+  margin: 0 0 0.5rem 0;
+}
+
+.section-desc {
+  font-size: 0.9rem;
+  color: #64748b;
+  margin: 0 0 1.5rem 0;
+}
+
+.courses-table-container {
+  background: rgba(30, 41, 59, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.courses-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.9rem;
+}
+
+.courses-table th,
+.courses-table td {
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.courses-table th {
+  background: rgba(15, 23, 42, 0.4);
+  font-weight: 600;
+  color: #94a3b8;
+}
+
+.courses-table tr:last-child td {
+  border-bottom: none;
+}
+
+.code-badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #818cf8;
+  background: rgba(99, 102, 241, 0.12);
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+}
+
+.course-link {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.course-link:hover {
+  color: #818cf8;
+}
+
+.status-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 0.4rem;
+}
+
+.status--passed {
+  background: #10b981;
+  box-shadow: 0 0 8px #10b981;
+}
+
+.status--failed {
+  background: #ef4444;
+  box-shadow: 0 0 8px #ef4444;
+}
+
+.status--pending {
+  background: #94a3b8;
+  box-shadow: 0 0 8px #94a3b8;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.btn-unenroll {
+  background: rgba(239, 68, 68, 0.1);
+  color: #f87171;
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-unenroll:hover {
+  background: rgba(239, 68, 68, 0.2);
+  color: #ff8a8a;
+  border-color: rgba(239, 68, 68, 0.4);
+}
+
+.empty-row {
+  text-align: center;
+  color: #64748b;
+  padding: 3rem 1.5rem !important;
+}
+
+.empty-row a {
+  color: #818cf8;
+  text-decoration: none;
+}
+
+.empty-row a:hover {
+  text-decoration: underline;
+}
+
+.loading-text {
+  color: #94a3b8;
+  padding: 2rem;
+  text-align: center;
+  margin: 0;
+}

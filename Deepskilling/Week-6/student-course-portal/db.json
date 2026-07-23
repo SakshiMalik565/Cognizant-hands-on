@@ -1,0 +1,71 @@
+{
+  "courses": [
+    {
+      "id": 1,
+      "name": "Design Patterns and Principles",
+      "code": "CS101",
+      "credits": 4,
+      "gradeStatus": "passed"
+    },
+    {
+      "id": 2,
+      "name": "Data Structures and Algorithms",
+      "code": "CS201",
+      "credits": 4,
+      "gradeStatus": "passed"
+    },
+    {
+      "id": 3,
+      "name": "Database Systems & PL/SQL",
+      "code": "CS301",
+      "credits": 3,
+      "gradeStatus": "pending"
+    },
+    {
+      "id": 4,
+      "name": "Spring Boot Microservices",
+      "code": "CS401",
+      "credits": 4,
+      "gradeStatus": "pending"
+    },
+    {
+      "id": 5,
+      "name": "React Web Applications",
+      "code": "CS501",
+      "credits": 3,
+      "gradeStatus": "failed"
+    }
+  ],
+  "students": [
+    {
+      "id": 1,
+      "name": "Alice Smith",
+      "enrolledCourses": [1, 2, 3]
+    },
+    {
+      "id": 2,
+      "name": "Bob Johnson",
+      "enrolledCourses": [1, 4]
+    },
+    {
+      "id": 3,
+      "name": "Charlie Brown",
+      "enrolledCourses": [2, 3]
+    },
+    {
+      "id": 4,
+      "name": "Diana Prince",
+      "enrolledCourses": [2, 4, 5]
+    }
+  ],
+  "enrollments": [
+    {
+      "id": 1,
+      "courseId": 1
+    },
+    {
+      "id": 2,
+      "courseId": 2
+    }
+  ]
+}

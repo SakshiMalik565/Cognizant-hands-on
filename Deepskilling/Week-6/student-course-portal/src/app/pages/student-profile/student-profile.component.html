@@ -1,0 +1,55 @@
+<div class="profile-container">
+  <div class="profile-header">
+    <div class="avatar-block">AM</div>
+    <div class="info-block">
+      <h2>{{ studentName }}</h2>
+      <p class="meta-item">Student ID: <strong>{{ studentId }}</strong></p>
+      <p class="meta-item">Major: <strong>{{ major }}</strong></p>
+      <p class="meta-item">Email: <strong>{{ studentEmail }}</strong></p>
+    </div>
+  </div>
+
+  <div class="enrolled-courses-section">
+    <h3>Your Enrolled Courses (NgRx Cross-Slice Join)</h3>
+    <p class="section-desc">
+      Below is the live list of courses you are currently enrolled in, loaded from the reactive NgRx state tree.
+    </p>
+
+    <div class="courses-table-container">
+      <table class="courses-table" *ngIf="(enrolledCourses$ | async) as courses; else loading">
+        <thead>
+          <tr>
+            <th>Code</th>
+            <th>Course Name</th>
+            <th>Credits</th>
+            <th>Grade Status</th>
+            <th class="text-right">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let course of courses">
+            <td><span class="code-badge">{{ course.code }}</span></td>
+            <td><a [routerLink]="['/courses', course.id]" class="course-link">{{ course.name }}</a></td>
+            <td>{{ course.credits | creditLabel }}</td>
+            <td>
+              <span class="status-dot" [ngClass]="'status--' + course.gradeStatus"></span>
+              {{ course.gradeStatus }}
+            </td>
+            <td class="text-right">
+              <button (click)="onUnenroll(course.id)" class="btn-unenroll">Unenroll</button>
+            </td>
+          </tr>
+          <tr *ngIf="courses.length === 0">
+            <td colspan="5" class="empty-row">
+              You are not enrolled in any courses yet. Visit the <a routerLink="/courses">Course Catalogue</a> to enroll.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <ng-template #loading>
+        <p class="loading-text">Loading enrolled courses details...</p>
+      </ng-template>
+    </div>
+  </div>
+</div>
